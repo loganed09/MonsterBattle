@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+<div class="fight-container">
+    <div class="player-select">
+          <form action="/" method="post">
+            <select name="characterSelect" id="">
+                <option value="Churizord">Churizord</option>
+                <option value="Squattle">Squattle</option>
+                <option value="Picanu">Picanu</option>
+            </select>
+            <button type="submit" name="button" class="btn btn-primary">Select Fighter</button>
+          </form>
+
+    </div>
+    <div class="fight-box">
+        <h1><%= character.name %></h1> <p><%= character.HP %></p>
+        <h2>VS.</h2>
+        <h1><%= newEnemy.name %></h1> <p><%= newEnemy.HP %></p>
+        <button type="submit" class="btn btn-primary" onclick=''>Attack</button>
+        <% console.log(newEnemy) %>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
