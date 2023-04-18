@@ -65,14 +65,17 @@ class Fighter {
     }
 
     heal(healingAmt) {
-        let healedAmt = this._HP + healingAmt;
+        let healed = Math.floor(healingAmt)
+        let totalHealth = this.HP + healed;
 
-        if(this._HP <=0) {
-            this._HP = 0;
-        }else if(healedAmt > 100) {
-            this._HP = 100
+        if(this.HP <=0) {
+            this.HP = 0;
+        }else if(totalHealth > 100) {
+            this.HP = 100
+            console.log(`You healed for ${healed}. Giving ${this.name} ${this.HP} HP. You overhealed ${totalHealth - 100}.`)
         }else {
-            this._HP = healedAmt
+            this.HP = totalHealth
+            console.log(`You healed for ${healed}.  Giving ${this.name} ${this.HP} HP.`)
         }            
     }
 
@@ -80,6 +83,9 @@ class Fighter {
         if(this._isKnockedOut){
             this._HP = 30;
             this.toggleKnockOut();
+            console.log(`${this.name} is revived with ${this.HP} HP.`)
+        }else {
+            console.log(`You are already alive!`)
         }
     }
 };
@@ -103,7 +109,7 @@ const getRandomItem = (arr) => {
 
 app.get('/', (req, res) => {
 
-    res.render('fakemonMain', {character: character, newEnemy: newEnemy});
+    res.render('fighterMain', {character: character, newEnemy: newEnemy});
 })
 
 app.post('/', (req, res) => {
@@ -111,6 +117,7 @@ app.post('/', (req, res) => {
     selectedEnemy = getRandomItem(enemies);
     newEnemy = new Fighter(selectedEnemy);
     character.attack(newEnemy);
+    newEnemy.heal(20);
     
     console.log(character);
     console.log(newEnemy);
