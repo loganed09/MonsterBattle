@@ -41,18 +41,18 @@ class Fighter {
     }
 
 
-    attack(enemy){
+    attack(target){
         let dmgDone = Math.floor(Math.random() * 100);
-        let newHealth = enemy.HP - dmgDone;
-        console.log(`${this._name} has hit ${enemy.name} for ${dmgDone} damage!`)
+        let newHealth = target.HP - dmgDone;
+        console.log(`${this._name} has hit ${target.name} for ${dmgDone} damage!`)
         if(newHealth <= 0) {
-            enemy.HP = 0;
-            enemy.toggleKnockOut();
-            console.log(`${this.name} hit ${enemy.name} for ${dmgDone}. ${enemy.name} has ${enemy.HP} HP left.`);
-            console.log(`${enemy.name} is knocked out!`)
+            target.HP = 0;
+            target.toggleKnockOut();
+            console.log(`${this.name} hit ${target.name} for ${dmgDone}. ${target.name} has ${target.HP} HP left.`);
+            console.log(`${target.name} is knocked out!`)
         }else {
-            enemy.HP = newHealth;
-            console.log(`${this.name} hit ${enemy.name} for ${dmgDone}. ${enemy.name} has ${newHealth} HP left.`);
+            target.HP = newHealth;
+            console.log(`${this.name} hit ${target.name} for ${dmgDone}. ${target.name} has ${newHealth} HP left.`);
         }
     }
 
@@ -91,12 +91,12 @@ class Fighter {
 };
 
 let enemies = ['Smarlaz', 'Geadurd', 'Riamsnu']
-let selectedEnemy = '';
+let selectedTarget = '';
 let character = {
     name: 'YOUR CHOICE!'
 };
-let newEnemy = {
-    name: 'THE ENEMY!'
+let newTarget = {
+    name: 'THE TARGET!'
 }
 
 
@@ -109,18 +109,18 @@ const getRandomItem = (arr) => {
 
 app.get('/', (req, res) => {
 
-    res.render('fighterMain', {character: character, newEnemy: newEnemy});
+    res.render('fighterMain', {character: character, newTarget: newTarget});
 })
 
 app.post('/', (req, res) => {
     character = new Fighter(req.body.characterSelect);
-    selectedEnemy = getRandomItem(enemies);
-    newEnemy = new Fighter(selectedEnemy);
-    character.attack(newEnemy);
-    newEnemy.heal(20);
+    selectedTarget = getRandomItem(enemies);
+    newTarget = new Fighter(selectedTarget);
+    character.attack(newTarget);
+    newTarget.heal(20);
     
     console.log(character);
-    console.log(newEnemy);
+    console.log(newTarget);
     res.redirect('/');
 })
 
