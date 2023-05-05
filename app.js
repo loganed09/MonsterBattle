@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+// const jsdom = require('jsdom');
 
 const app = express();
+// const dom = new jsdom.JSDOM("");
+// const jquery = require('jquery')(dom.window);
 
 
 
@@ -11,6 +14,8 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use('jquery', express.static(__dirname + '/node_modules/jquery/dist/'))
+
 
 class Fighter {
     constructor(name, type) {
@@ -99,6 +104,11 @@ let newTarget = {
     name: 'THE TARGET!'
 }
 
+let testing = 'testing';
+let attack;
+
+// document.getElementById('attack-button').onclick = character.attack(newTarget);
+
 
 const getRandomItem = (arr) => {
     const randomIndex = Math.floor(Math.random() * arr.length);
@@ -108,21 +118,46 @@ const getRandomItem = (arr) => {
 
 
 app.get('/', (req, res) => {
-
+    
     res.render('fighterMain', {character: character, newTarget: newTarget});
 })
+
+app.get('/fightScreen', (req, res) => {
+    res.render('fightScreen', {character: character, newTarget: newTarget})
+})
+
+
 
 app.post('/', (req, res) => {
     character = new Fighter(req.body.characterSelect);
     selectedTarget = getRandomItem(enemies);
     newTarget = new Fighter(selectedTarget);
-    character.attack(newTarget);
-    newTarget.heal(20);
+    // character.attack(newTarget);
+    // newTarget.heal(20);
+    //attack = character.attack(newTarget);
     
+    console.log(req.body.characterSelect)
     console.log(character);
     console.log(newTarget);
     res.redirect('/');
 })
+
+app.post('/attack', (req, res) => {
+    character.attack(newTarget);
+    newTarget.attack(selectedTarget);
+    res.redirect('/');
+})
+
+app.post('/heal', (req, res) =>{
+    character.heal
+})
+
+// app.post('/fightScreen', (req, res) => {
+//     character.heal(20);
+//     res.redirect('fightScreen');
+// })
+
+
 
 
 

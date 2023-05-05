@@ -1,24 +1,66 @@
 <%- include('partials/header') %>
+    <script src="jquery-3.6.4.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <div class="fight-container">
+        <div class="player-select">
+            <form action="/" method="post">
+                <select name="characterSelect" id="">
+                    <option value="Churizord">Churizord</option>
+                    <option value="Squattle">Squattle</option>
+                    <option value="Picanu">Picanu</option>
+                </select>
+                <button type="submit" name="button" class="btn btn-primary">Select
+                    Fighter</button>
+            </form>
 
-<div class="fight-container">
-    <div class="player-select">
-          <form action="/" method="post">
-            <select name="characterSelect" id="">
-                <option value="Churizord">Churizord</option>
-                <option value="Squattle">Squattle</option>
-                <option value="Picanu">Picanu</option>
-            </select>
-            <button type="submit" name="button" class="btn btn-primary">Select Fighter</button>
-          </form>
+        </div>
+        <div class="fight-box">
+            <h1 id="<%= character.name %>"><%= character.name %></h1> <p><%= character.HP %></p>
+                    <h2>VS.</h2>
+                    <h1><%= newTarget.name %></h1> <p><%= newTarget.HP %></p>
+                           <form action="/attack" method="post">
+                                <button class="btn btn-primary"
+                                id="attack"
+                                class="attack"
+                                onclick="">Attack</button>
+                           </form>
+                            <!-- <script>
+                            // $('button').on("click", character.attack(newTarget));
+                            // console.log('test');
+                            // let attack = (char, targ) => {
+                            //     let dmgDone = Math.floor(Math.random() * 100);
+                            //     let newHealth = target.HP - dmgDone;
+                            //     console.log(`${this._name} has hit ${target.name} for ${dmgDone} damage!`)
+                            //     if(newHealth <= 0) {
+                            //         target.HP = 0;
+                            //         target.toggleKnockOut();
+                            //         console.log(`${this.name} hit ${target.name} for ${dmgDone}. ${target.name} has ${target.HP} HP left.`);
+                            //         console.log(`${target.name} is knocked out!`)
+                            //     }else {
+                            //         target.HP = newHealth;
+                            //         console.log(`${this.name} hit ${target.name} for ${dmgDone}. ${target.name} has ${newHealth} HP left.`);
+                            //     }
+                            // }
+                            // $('.attack-button').click(() => {
+                            //     character.attack(newTarget);
+                            //     console.log("test")
+                            // })
 
-    </div>
-    <div class="fight-box">
-        <h1><%= character.name %></h1> <p><%= character.HP %></p>
-        <h2>VS.</h2>
-        <h1><%= newTarget.name %></h1> <p><%= newTarget.HP %></p>
-        <button type="submit" class="btn btn-primary" onclick=''>Attack</button>
-        <% console.log(newTarget) %>
-    </div>
-</div>
-
+                            // $(document).keydown(() => {
+                            //     console.log("this works")
+                            // })
+                            // document.getElementsByClassName('attack-button').click(() => {
+                            //     console.log("this works");
+                            // })
+                                const attackCLI = () => {
+                                    console.log('testing')
+                                }
+                                $('.attack').on("click", () => {
+                                    console.log('testing');
+                                })
+                            </script> -->
+                                </div>
+                            </div>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <%- include('partials/footer') %>

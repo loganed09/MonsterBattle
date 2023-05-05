@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+<div class="fight-box">
+    <h1 id="<%= character.name %>"><%= character.name %></h1> <p><%= character.HP %></p>
+            <h2>VS.</h2>
+            <h1><%= newTarget.name %></h1> <p><%= newTarget.HP %></p>
+            <!-- <form action="/fightScreen" method="post">
+                <button type="submit" name="button" class="btn btn-primary">Attack</button>
+            </form>
+            <form action="/fightScreen" method="post">
+                <button type="submit" name="button" class="btn btn-primary">Heal</button>
+            </form> -->
+            <button type="submit" name="button" class="btn btn-primary attack">Attack</button>
+        <script>
+            document.getElementsByClassName('attack').addEventListener("click", () => { 
+                console.log('test'); 
+          }) 
+        </script>
+
+    </div>
+</div>
+
+
+
+
+<%- include('partials/footer') %>
