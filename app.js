@@ -201,6 +201,11 @@ app.post('/attack', (req, res) => {
     res.redirect('/');
 })
 
+app.post('/enemyAttack', (req, res) => {
+    newTarget.attack(character);
+    res.redirect('/');
+})
+
 app.post('/heal', (req, res) =>{
     character.heal();
     res.redirect('/');

@@ -1,0 +1,43 @@
+nav .container{
+    justify-content: center !important;
+}
+
+body {
+    text-align: center; 
+}
+
+
+.fight-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.mainContent {
+    display: flex;
+    justify-content: center;
+}
+
+.mainContent p {
+    align-self: center; 
+    font-size: 5rem;
+}
+.namePhoto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+}
+
+.actionButtons {
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: center;
+}
+
+.actionButtons .btn {
+    margin: 10px;
+    width: 200px;
+}
+

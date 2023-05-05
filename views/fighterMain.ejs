@@ -18,22 +18,41 @@
             </form>
 
         </div>
-        <div class="fight-box">
-            
-            <h1 id="<%= character.name %>"><%= character.name %></h1> 
+       
+    </div>
+    <div class="fight-box">
+        
+        <div class="mainContent playerContent">
+            <div class="namePhoto">
+                <h1 id="<%= character.name %>"><%= character.name %></h1> 
                 <img src="<%=character.photo%>" width="200px">
-                <p><%= character.HP %></p>
-            <h2>VS.</h2>
-            <h1><%= newTarget.name %></h1> 
+            </div>
+            <p><%= character.HP %></p>
+        </div>
+        
+        <h2>VS.</h2>
+        
+        <div class="mainContent enemyContent">
+            <div class="namePhoto">
+                <h1><%= newTarget.name %></h1> 
                 <img src="<%=newTarget.photo%>" width="200px">
-                <p><%= newTarget.HP %></p>
+            </div>
+            <p><%= newTarget.HP %></p>
+        </div>
+
+        <div class="actionButtons">
             <form action="/attack" method="post">
-                <button class="btn btn-primary"
-                id="attack"
-                class="attack"
-                onclick="">Attack</button>
+                <button class="btn btn-primary" id="attack">
+                    Attack
+                </button>
             </form>
-                                </div>
-                            </div>
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+            <form action="/enemyAttack" method="post">
+                <button class="btn btn-primary" id="enemyAttack">
+                    Enemy Attack
+                </button>
+            </form>
+        </div>
+        
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <%- include('partials/footer') %>
