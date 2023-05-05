@@ -6,17 +6,24 @@
         <div class="player-select">
             <form action="/" method="post">
                 <select name="characterSelect" id="">
-                    <option value="Churizord">Churizord</option>
-                    <option value="Squattle">Squattle</option>
-                    <option value="Picanu">Picanu</option>
+                    <option value="Blockman">Blockman</option>
+                    <option value="Bugz">Bugz</option>
+                    <option value="Flowerz">Flowerz</option>
+                    <option value="Butterfly">Butterfly</option>
+                    <option value="Multihead">Multihead</option>
+                    <option value="Squidman">Squidman</option>
                 </select>
                 <button type="submit" name="button" class="btn btn-primary">Select
                     Fighter</button>
             </form>
 
         </div>
+        <!-- <img src="/images/blockMan.png" width="200px"> -->
         <div class="fight-box">
-            <h1 id="<%= character.name %>"><%= character.name %></h1> <p><%= character.HP %></p>
+            
+            <h1 id="<%= character.name %>"><%= character.name %></h1> 
+            <img src="<%=character.photo%>" width="200px">
+            <p><%= character.HP %></p>
                     <h2>VS.</h2>
                     <h1><%= newTarget.name %></h1> <p><%= newTarget.HP %></p>
                            <form action="/attack" method="post">

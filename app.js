@@ -22,6 +22,7 @@ class Fighter {
         this._name = name;
         this._type = type;
         this._HP = 100;
+        this._photo = '';
         this._isKnockedOut = false;
     }
 
@@ -43,6 +44,10 @@ class Fighter {
 
     get isKnockedOut() {
         return this._isKnockedOut;
+    }
+
+    get photo() {
+        return this._photo;
     }
 
 
@@ -135,7 +140,33 @@ app.post('/', (req, res) => {
     // character.attack(newTarget);
     // newTarget.heal(20);
     //attack = character.attack(newTarget);
+    // if (character.name === 'Blockman') {
+    //     character._photo = '/images/Blockman.png';
+    // }
     
+    switch(character.name) {
+        case 'Blockman':
+            character._photo = '/images/blockMan.png'
+            break;
+        case 'Bugz':
+            character._photo = '/images/bugz.png'
+            break;
+        case 'Butterfly':
+            character._photo = '/images/butterfly.png'
+            break;
+        case 'Flowerz':
+            character._photo = '/images/flower.png'
+            break;
+        case 'Multihead':
+            character._photo = '/images/multiHead.png'
+            break;
+        case 'Squidman':
+            character._photo = '/images/squidMan.png'
+            break;
+        default:
+            character._photo = ''
+    }
+
     console.log(req.body.characterSelect)
     console.log(character);
     console.log(newTarget);
@@ -144,12 +175,12 @@ app.post('/', (req, res) => {
 
 app.post('/attack', (req, res) => {
     character.attack(newTarget);
-    newTarget.attack(selectedTarget);
     res.redirect('/');
 })
 
 app.post('/heal', (req, res) =>{
-    character.heal
+    character.heal();
+    res.redirect('/');
 })
 
 // app.post('/fightScreen', (req, res) => {
