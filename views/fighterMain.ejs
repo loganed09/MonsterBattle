@@ -18,55 +18,21 @@
             </form>
 
         </div>
-        <!-- <img src="/images/blockMan.png" width="200px"> -->
         <div class="fight-box">
             
             <h1 id="<%= character.name %>"><%= character.name %></h1> 
-            <img src="<%=character.photo%>" width="200px">
-            <p><%= character.HP %></p>
-                    <h2>VS.</h2>
-                    <h1><%= newTarget.name %></h1> <p><%= newTarget.HP %></p>
-                           <form action="/attack" method="post">
-                                <button class="btn btn-primary"
-                                id="attack"
-                                class="attack"
-                                onclick="">Attack</button>
-                           </form>
-                            <!-- <script>
-                            // $('button').on("click", character.attack(newTarget));
-                            // console.log('test');
-                            // let attack = (char, targ) => {
-                            //     let dmgDone = Math.floor(Math.random() * 100);
-                            //     let newHealth = target.HP - dmgDone;
-                            //     console.log(`${this._name} has hit ${target.name} for ${dmgDone} damage!`)
-                            //     if(newHealth <= 0) {
-                            //         target.HP = 0;
-                            //         target.toggleKnockOut();
-                            //         console.log(`${this.name} hit ${target.name} for ${dmgDone}. ${target.name} has ${target.HP} HP left.`);
-                            //         console.log(`${target.name} is knocked out!`)
-                            //     }else {
-                            //         target.HP = newHealth;
-                            //         console.log(`${this.name} hit ${target.name} for ${dmgDone}. ${target.name} has ${newHealth} HP left.`);
-                            //     }
-                            // }
-                            // $('.attack-button').click(() => {
-                            //     character.attack(newTarget);
-                            //     console.log("test")
-                            // })
-
-                            // $(document).keydown(() => {
-                            //     console.log("this works")
-                            // })
-                            // document.getElementsByClassName('attack-button').click(() => {
-                            //     console.log("this works");
-                            // })
-                                const attackCLI = () => {
-                                    console.log('testing')
-                                }
-                                $('.attack').on("click", () => {
-                                    console.log('testing');
-                                })
-                            </script> -->
+                <img src="<%=character.photo%>" width="200px">
+                <p><%= character.HP %></p>
+            <h2>VS.</h2>
+            <h1><%= newTarget.name %></h1> 
+                <img src="<%=newTarget.photo%>" width="200px">
+                <p><%= newTarget.HP %></p>
+            <form action="/attack" method="post">
+                <button class="btn btn-primary"
+                id="attack"
+                class="attack"
+                onclick="">Attack</button>
+            </form>
                                 </div>
                             </div>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

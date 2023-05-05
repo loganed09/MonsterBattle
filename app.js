@@ -100,7 +100,7 @@ class Fighter {
     }
 };
 
-let enemies = ['Smarlaz', 'Geadurd', 'Riamsnu']
+let enemies = ['Blockman', 'Butterfly', 'Bugz', 'Flowerz', 'Multihead', 'Squidman']
 let selectedTarget = '';
 let character = {
     name: 'YOUR CHOICE!'
@@ -165,6 +165,29 @@ app.post('/', (req, res) => {
             break;
         default:
             character._photo = ''
+    }
+
+    switch(newTarget.name) {
+        case 'Blockman':
+            newTarget._photo = '/images/blockMan.png'
+            break;
+        case 'Bugz':
+            newTarget._photo = '/images/bugz.png'
+            break;
+        case 'Butterfly':
+            newTarget._photo = '/images/butterfly.png'
+            break;
+        case 'Flowerz':
+            newTarget._photo = '/images/flower.png'
+            break;
+        case 'Multihead':
+            newTarget._photo = '/images/multiHead.png'
+            break;
+        case 'Squidman':
+            newTarget._photo = '/images/squidMan.png'
+            break;
+        default:
+            newTarget._photo = ''
     }
 
     console.log(req.body.characterSelect)
